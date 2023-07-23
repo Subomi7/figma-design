@@ -2,12 +2,10 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   max-width: 1110px;
   max-height: 3872px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 9rem;
-  padding-right: 9rem;
+  margin: auto;
+  padding: auto;
   display: grid;
-  grid-template-columns: 1110px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: 720px 2094px 675px;
   grid-template-areas:
     'header'
@@ -40,17 +38,18 @@ body {
   width: 100%;
   max-width: 445px;
   height: 100%;
-  max-height: 530px;
+  max-height: 615px;
 }
 
 .image {
+  position: absolute;
   display: block;
   width: 100%;
   height: auto;
 }
 
 .overlay {
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
@@ -63,7 +62,7 @@ body {
 }
 
 .image-container:hover .overlay {
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
 .icon {
@@ -127,10 +126,11 @@ li > a {
   grid-area: main;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-row: 327px 1767px;
+  grid-row: 1fr 1fr 1fr;
   grid-template-areas:
     'main1'
-    'main2';
+    'main2'
+    'main3';
 }
 
 .main1 {
@@ -146,21 +146,20 @@ li > a {
   justify-content: space-between;
 }
 
-.main2 {
-  grid-area: main2;
+.main3 {
+  grid-area: main3;
   display: grid;
   gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    'project-header project-header'
     'project1 project2'
     'project3 project4'
     'project5 project6';
 }
 
-.project-header {
-  grid-area: project-header;
+.main2 {
+  grid-area: main2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -368,16 +367,26 @@ input:nth-child(1) {
   color: rgb(78, 225, 160);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
   body {
-    height: 100%;
+    place-items: center;
+    height: 100vh;
     padding: auto;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
   }
 
   .header {
     display: grid;
-    grid-template-rows: 383px 244px ;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: 1fr;
     grid-template-areas:
       'image-container'
       'about-me';
@@ -388,46 +397,56 @@ input:nth-child(1) {
   }
 
   .image {
-    height: 370px;
-    padding-left: 20rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }
 
   .overlay {
-    padding-left: 20rem;
-    padding-right: 20rem;
-    width: 50%;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    display: block;
+    padding: auto;
+    width: 15rem;
+    margin: auto;
+  }
+
+  .main {
+    justify-content: center;
+    align-items: center;
   }
 
   .main1 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
   }
 
-  .experience1, .experience2{
+  .experience1,
+  .experience2 {
     display: flex;
     flex-direction: column;
   }
 
-  .main2 {
+  .main3 {
     display: grid;
-    grid-template-areas: 
-    'project-header project-header'
-    'project1'
-    'project2'
-    'project3'
-    'project4'
-    'project5'
-    'project6';
+    place-items: center;
+    gap: 5rem;
+    grid-template-areas:
+      'project1'
+      'project2'
+      'project3'
+      'project4'
+      'project5'
+      'project6';
   }
 
   .footer {
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
   }
 
   .footer1 {
