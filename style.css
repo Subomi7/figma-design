@@ -299,7 +299,7 @@ li > a {
   grid-area: footer1;
   padding: 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: 1px solid grey;
 }
 
@@ -309,7 +309,7 @@ li > a {
 
 input:nth-child(1) {
   height: 3rem;
-  width: 29rem;
+  width: 90%;
   border: none;
   border-bottom: 1px solid grey;
   background-color: #242424;
@@ -317,7 +317,7 @@ input:nth-child(1) {
 
 #email {
   height: 3rem;
-  width: 29rem;
+  width: 90%;
   border: none;
   border-bottom: 1px solid grey;
   background-color: #242424;
@@ -325,15 +325,12 @@ input:nth-child(1) {
 
 #message {
   height: 6rem;
-  width: 29rem;
+  width: 90%;
   border: none;
   border-bottom: 1px solid grey;
   background-color: #242424;
 }
 
-.button {
-  margin-left: 19rem;
-}
 
 .button:hover {
   color: rgb(78, 225, 160);
@@ -342,16 +339,16 @@ input:nth-child(1) {
 .footer2 {
   grid-area: footer2;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 14rem;
-  padding: 3rem;
+  padding: 6rem;
 }
 
 .footer-icon {
   margin-top: 1rem;
   display: flex;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 .icon1:hover {
@@ -369,8 +366,9 @@ input:nth-child(1) {
 @media (max-width: 600px) {
   body {
     height: 100vh;
-    padding: 0;
-    margin: 0;
+    padding: auto;
+    margin: auto;
+    overflow: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-template-rows: 1fr 1fr 1fr;
@@ -391,7 +389,8 @@ input:nth-child(1) {
   }
 
   .about-me {
-    align-items: center;
+    place-items: center;
+    padding-left: 1rem;
   }
 
   .image {
@@ -441,21 +440,30 @@ input:nth-child(1) {
   }
 
   .footer {
+    width: auto;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
   }
 
   .footer1 {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-items: center;
+    font-size: 1rem;
+    margin-right: 2rem;
   }
 
   .footer2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  #name,
+  #email,
+  #message {
+    width: 100%;
   }
 }
